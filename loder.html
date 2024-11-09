@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .div{
+            width: 100px;
+            height: 100px;
+            /* background-color: aqua; */
+            border-style: groove;
+            border: 20px solid rgb(195, 195, 195);
+            border-top: 20px solid rgb(46, 180, 126);
+            border-radius: 50%;
+            margin-top: 20%;
+            margin-left: 45%;
+            /* box-shadow: 1px 1px 1px 1px rgb(46, 180, 126); */
+            
+         
+            
+        
+            animation: loader 2s ease-in-out  0s infinite normal;
+           
+        }
+        @keyframes loader {
+            0%{
+                transform: rotate(0deg);
+            }
+            25%{
+                border-top: 20px solid aqua;
+                /* transform: rotate(90deg); */
+            }
+            50%{
+                border-top: 20px solid darkmagenta;
+                /* transform: rotate(180deg); */
+            }
+            75%
+            {
+                border-top: 20px solid darkslateblue;
+                /* transform: rotate(270deg); */
+            }
+            100%
+            {
+                transform: rotate(360deg);
+            }
+            
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div class="div">
+
+    </div>
+    
+</body>
+</html>
