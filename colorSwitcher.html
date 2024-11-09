@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            
+            text-align: center;
+            color: wheat;
+            background-color: black;
+        }
+        .outer{
+           display: flex;
+           justify-content: center;
+            border:10px solid rgb(226, 180, 55);
+            height: 140px;
+      
+            padding: 5px;
+        }
+        .buttonss{
+            /* background-color: #000;  */
+            border: 3px solid aqua;
+            width: 100px;
+            height:100px;
+            margin: 10px;
+            align-items: center;
+       
+           
+        }
+        #purple{
+            background-color: purple;
+            width: 100px;
+            height:100px;
+            margin: 10px;
+            border: 3px solid black;
+            align-items: center;
+        }
+        #blue{
+            background-color: blue;
+            width: 100px;
+            height:100px;
+            margin: 10px;
+            
+            border: 3px solid black;
+            align-items: center;
+        }
+        #green{
+            background-color: green;
+            width: 100px;
+            height: 100px;px;
+            margin: 10px;
+            
+            border: 3px solid black;
+            align-items: center;
+        }
+        #red{
+            background-color: red;
+            width: 100px;
+            height:100px;
+            margin: 10px;
+            
+            border: 3px solid black;
+            align-items: center;
+        }
+        #purple:hover{
+            border: 3px solid aqua;
+            border-radius: 10%;
+            cursor: pointer;
+         
+               transition: .5s;
+        }
+         #blue:hover{
+            border: 3px solid aqua;
+            border-radius: 10%;
+            cursor: pointer;
+               transition: .5s;
+        }
+        #green:hover{
+            border: 3px solid aqua;
+            border-radius: 10%;
+            cursor: pointer;
+               transition: .5s;
+        }
+        #red:hover{
+            border: 3px solid aqua;
+            border-radius: 10%;
+            cursor: pointer;
+               transition: .5s;
+        } 
+
+    </style>
+</head>
+<body>
+    <h1>this is color switcher</h1>
+    <div class="outer">   
+        <div class="buttons" id="purple"></div>
+        <div class="buttons" id="green"></div>
+        <div class="buttons" id="red"></div>
+        <div class="buttons" id="blue"></div>
+    </div>
+
+    <h2>chose your fav</h2>
+    <script>
+        const buttons = document.querySelectorAll('.buttons')
+        const body = document.querySelector("body")
+        buttons.forEach(  (button)=> {
+            // console.log(button);
+            button.addEventListener('click', (e)=> {
+                console.log(e);
+                console.log(e.target) ;
+                if(e.target.id === 'purple'){
+                    body.style.backgroundColor = 'purple'
+                }
+                if(e.target.id === 'green'){
+                    body.style.backgroundColor = 'green'
+                }
+                if(e.target.id === 'red'){
+                    body.style.backgroundColor = 'red'
+                }
+                if(e.target.id === 'blue'){
+                    body.style.backgroundColor = 'blue'
+                }
+            });
+        });
+    </script>
+</body>
+</html>
