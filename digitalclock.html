@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-image: url('https://images.pexels.com/photos/359989/pexels-photo-359989.jpeg?auto=compress&cs=tinysrgb&w=600');
+            background-size: cover;
+        }
+        .container{
+            display: flex;
+            /* justify-content: center; */
+            
+            opacity: .8;
+
+        }
+        h1{
+           
+            align-content: center;
+            text-align: center;
+            width: 600px;
+            height: 200px;
+            font-size: 6rem;
+            color: rgb(0, 0, 0);
+            border: 10px double transparent; 
+            box-shadow: rgba(92, 193, 240, 0.829) 0px -23px 25px 0px inset, rgba(78, 193, 238, 0.795) 0px -36px 30px 0px inset, rgba(33, 218, 224, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(53, 255, 221, 0.836) 0px 32px 16px;
+        }
+        h1:hover{
+            border: 10px double rgb(255, 255, 255); 
+            box-shadow: rgba(191, 193, 194, 0.829) 0px -23px 25px 0px inset, rgba(135, 223, 101, 0.795) 0px -36px 30px 0px inset, rgba(33, 218, 224, 0.1) 0px -79px 40px 0px inset, rgba(187, 255, 62, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(255, 127, 53, 0.836) 0px 32px 16px; 
+            
+            transition: 1s;
+        }
+    </style>
+</head>
+<body> 
+    <div class="container" >
+
+    <h1 id="container"></div>
+</div>
+</body>
+<script>
+    let clock= document.getElementById('container')
+    let displayClock=()=>{
+        let d= new Date();
+        let hr= d.getHours()
+        let min= d.getMinutes()
+        let sec= d.getSeconds()
+        let AmPm;
+        if (hr<12) {
+            AmPm='AM'
+        }
+        if (hr>=12) {
+            AmPm='PM'
+        }
+        if (hr>12) {
+            hr=hr-12
+        }
+        if (sec<10) {
+            sec='0'+sec
+            
+        }
+        if (min<10) {
+            min='0'+min
+        }
+        if (hr<10) {
+            hr='0'+hr
+        }
+        clock.innerHTML=hr+":"+min+":"+sec+" "+AmPm
+    }
+    setInterval(displayClock, 1000);
+
+
+
+</script>
+</html>
