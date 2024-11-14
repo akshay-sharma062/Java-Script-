@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-image: url('https://images.pexels.com/photos/2093323/pexels-photo-2093323.jpeg?auto=compress&cs=tinysrgb&w=600');
+            background-size: cover;
+        }
+        .container{
+            display: block;
+            /* justify-content: center; */
+            /* align-items: center; */
+            text-align: center;
+            width: 100%;
+            height: 100%;
+        }
+        .outer{
+            display: flex;
+            justify-content: center;
+        }
+        #clock{
+           
+            align-content: center;
+            text-align: center;
+            width: 600px;
+            height: 200px;
+            font-size: 100px;
+            color: rgb(173, 214, 26);
+            border: 10px double rgb(223, 151, 63);
+            border-radius: 10%;
+        }
+        #clock:hover{
+            box-shadow: rgba(48, 207, 34, 0.877) -5px 5px, rgba(240, 46, 170, 0.3) -10px 10px, rgba(46, 195, 240, 0.466) -15px 15px, rgba(240, 46, 170, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px;
+            transition: 1s;
+        }
+        /* button{
+            align-content: center;
+            text-align: center;
+            color: bisque;
+            border: 10px double bisque;
+            padding: 10px;
+            background:none
+            } */
+            
+            
+            /* CSS */
+            .button {
+                padding: 0.6em 2em;
+                border: none;
+                outline: none;
+                color: rgb(255, 255, 255);
+                background-color: #222;
+                cursor: pointer;
+                position: relative;
+                z-index: 0;
+                border-radius: 10px;
+                user-select: none;
+                -webkit-user-select: none;
+                touch-action: manipulation;
+                font-size: 20px;
+                font-weight: 500;
+                margin: 10px;
+                margin-top: 20px;
+                opacity: .8;
+            }
+
+.button:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  background-color:#222;
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-button-85 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+@keyframes glowing-button-85 {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.button:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+    </style>
+</head>
+<body> 
+    <div class="container" >
+        <div class="outer">
+
+            <div id="clock">
+                <span id="minitues"></span>
+                <span id="second"></span>
+                <span id="milisec"></span>
+            </div>
+        </div>
+        
+        <div>
+            <button class="button"  id="start"> START</button>
+            <button class="button" id="stop"> STOP</button>
+            <button class="button" id="reset"> RESET</button>
+        </div>
+    </div>
+</body>
+<script>
+    let clock= document.getElementById('clock')
+    let minitues=document.getElementById('minitues')
+    let second=document.getElementById('second')
+    let milisec=document.getElementById('milisec')
+    let stop=document.getElementById('stop')
+    let start=document.getElementById('start')
+    let reset=document.getElementById('reset')
+    let interval
+    let min= 0
+    let sec= 0
+    let mili=0
+    milisec.innerHTML=': 0'+mili
+    second.innerHTML=': 0'+sec
+    minitues.innerHTML='0'+min
+    start.addEventListener('click',(e)=>{
+        e.preventDefault()
+        let displayClock=()=>{
+            mili++
+            if (mili<10) {
+                milisec.innerHTML='0'+mili
+            }
+            if (mili>9) {
+                milisec.innerHTML=mili
+                }
+            if (mili>99) {
+                sec++
+                second.innerHTML=sec
+                mili=0
+                // milisec.innerHTML='0'+0
+            }
+            if (sec<10) {
+                second.innerHTML='0'+sec
+            }
+            if (sec>9) {
+                second.innerHTML=sec
+             }
+            if (sec>59) {
+                min++
+                minitues.innerHTML=min
+                sec=0
+                // second.innerHTML=0
+            }
+            if (min<10) {
+                minitues.innerHTML='0'+min
+            }
+            // clock.innerHTML=min+":"+sec+":"+mili
+            // console.log(min+":"+sec+":"+mili);
+            
+            }
+            clearInterval(displayClock)
+          interval= setInterval(displayClock, 10)
+        });
+    
+    stop.addEventListener('click',(e)=>{
+        clearInterval(interval)
+    })
+    reset.addEventListener('click',(e)=>{
+        clearInterval(interval)
+        minitues.innerHTML='00'
+        second.innerHTML='00'
+        milisec.innerHTML='00'
+
+    })
+
+</script>
+</html>
