@@ -110,7 +110,7 @@ input:hover{
 }
 
 /* Style the "Add" button */
-.addBtn {
+button {
   padding: 7px;
   width: 20%;
   background: #9ae8f4;
@@ -125,8 +125,8 @@ input:hover{
   border-radius: 0px;
 }
 
-.addBtn:hover {
-  background-color: #000000;
+button:hover{
+  background-color: #dbb126;
   border: #9ae8f4 solid 0.1px;
   transition: 1s;
 }
@@ -149,22 +149,30 @@ h1{
     <script>
       const title= document.getElementById('myInput')
       const add=document.getElementById('add')
-      const text=document.getElementsByTagName('h1')
-      const Remove=document.getElementById('Remove')
+      // const text=document.getElementsByTagName('h1')
+      const Remove=document.getElementById('btn')
+      const items=document.getElementById('todo')
+      let titlec=[]
       add.addEventListener('click',(e)=>{
        e.preventDefault()
-       let titlec= title.value
+       addTodo(title.value)
+       titlec.push({'items':title.value})
        localStorage.setItem("todo",JSON.stringify([titlec]))
        console.log(e)
-       todo.innerHTML=`<h1>${titlec}</h1>`
-       myInput.value=" "
-      }
-      )
-      Remove.addEventListener("click",(e)=>{
-        e.preventDefault()
-        localStorage.removeItem("todo")
-         todo.innerHTML=` `
+       title.value=" "
       })
+      const addTodo=(title)=>{
+        
+        const listitem=document.createElement('li')
+        listitem.innerHTML=`${title}<button id='btn'>Remove<button>`
+          listitem.querySelector('button').addEventListener('click',(e)=>{
+            e.preventDefault()
+            listitem.remove()
+          })
+          items.appendChild(listitem)
+      }
+      
+     
 
 
   
